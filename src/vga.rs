@@ -89,7 +89,7 @@ use spin::Mutex;
 lazy_static! {
     pub static ref VGA: Mutex<Vga> =  Mutex::new(Vga {
         index: 0,
-        color: (Color::Cyan as u8) | (Color::Black as u8) << 4,
+        color: (Color::LightGreen as u8) | (Color::Black as u8) << 4,
         buffer: unsafe { &mut *(0xB8000 as *mut Buffer) }
     });
 }
@@ -110,5 +110,11 @@ macro_rules! println {
 #[doc(hidden)]
 pub fn _print(args: fmt::Arguments) {
     use core::fmt::Write;
-    VGA.lock().write_fmt(args).unwrap();
+    use x86_64::instructions::interrupts;
+
+    interrupts::without_interrupts(|| {
+        VGA.lock().write_fmt(args).unwrap();
+    });
+    
 }
+

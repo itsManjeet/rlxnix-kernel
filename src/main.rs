@@ -6,19 +6,49 @@
 
 use rlxos::println;
 use core::panic::PanicInfo;
+use bootloader::{
+    BootInfo,
+    entry_point,
+};
 
 
 /*
  * Entry Point
  */
-#[no_mangle]
-pub extern "C" fn _start() -> ! {
+entry_point!(kernel_main);
 
-    println!("Hello World {}", "!");
+#[no_mangle]
+fn kernel_main(boot_info: &'static BootInfo) -> ! {
+    use rlxos::memory::active_level_4_table;
+    use x86_64::VirtAddr;
+    use x86_64::structures::paging::PageTable;
+
+    println!("Welcome to rlxos {}","!");
+    rlxos::initialize();
+
+   let phys_addr = VirtAddr::new(boot_info.physical_memory_offset);
+   let l4_table = unsafe { active_level_4_table(phys_addr)};
+
+   for (i, entry) in l4_table.iter().enumerate() {
+       if !entry.is_unused() {
+           println!("L4 entry {}: {:?}", i, entry);
+
+           let phys = entry.frame().unwrap().start_address();
+           let virt = phys.as_u64() + boot_info.physical_memory_offset;
+           let ptr = VirtAddr::new(virt).as_mut_ptr();
+           let l3_table: &PageTable = unsafe {&*ptr};
+
+           for (i, entry) in l3_table.iter().enumerate() {
+               if !entry.is_unused() {
+                   println!("   L3 Entry {}: {:?}", i, entry);
+               }
+           }
+       }
+   }
     #[cfg(test)]
     test_main();
 
-    loop {}
+    rlxos::hlt_loop();
 }
 
 
@@ -29,7 +59,7 @@ pub extern "C" fn _start() -> ! {
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     println!("{}", info);
-    loop {}
+    rlxos::hlt_loop();
 }
 
 

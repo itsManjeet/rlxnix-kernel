@@ -4,6 +4,9 @@
 #![test_runner(rlxos::test_runner)]
 #![reexport_test_harness_main = "test_main"]
 
+extern crate alloc;
+
+use alloc::boxed::Box;
 use rlxos::println;
 use core::panic::PanicInfo;
 use bootloader::{
@@ -19,32 +22,22 @@ entry_point!(kernel_main);
 
 #[no_mangle]
 fn kernel_main(boot_info: &'static BootInfo) -> ! {
-    use rlxos::memory::active_level_4_table;
+    use rlxos::memory::{self, BootInfoFrameAllocator};
     use x86_64::VirtAddr;
-    use x86_64::structures::paging::PageTable;
+    use rlxos::allocator;
 
     println!("Welcome to rlxos {}","!");
     rlxos::initialize();
 
-   let phys_addr = VirtAddr::new(boot_info.physical_memory_offset);
-   let l4_table = unsafe { active_level_4_table(phys_addr)};
+    let phys_addr = VirtAddr::new(boot_info.physical_memory_offset);
+    let mut mapper = unsafe {memory::initialize(phys_addr)};
+    let mut frame_allocator = unsafe { BootInfoFrameAllocator::initialize(&boot_info.memory_map)};
 
-   for (i, entry) in l4_table.iter().enumerate() {
-       if !entry.is_unused() {
-           println!("L4 entry {}: {:?}", i, entry);
+    allocator::initialize(&mut mapper, &mut frame_allocator)
+        .expect("Heap initialization failed");
+        
+    let x = Box::new(41);
 
-           let phys = entry.frame().unwrap().start_address();
-           let virt = phys.as_u64() + boot_info.physical_memory_offset;
-           let ptr = VirtAddr::new(virt).as_mut_ptr();
-           let l3_table: &PageTable = unsafe {&*ptr};
-
-           for (i, entry) in l3_table.iter().enumerate() {
-               if !entry.is_unused() {
-                   println!("   L3 Entry {}: {:?}", i, entry);
-               }
-           }
-       }
-   }
     #[cfg(test)]
     test_main();
 

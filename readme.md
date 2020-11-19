@@ -65,7 +65,7 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-rlxnix is a experimental monolithic kernel written in rust for analyzing and learning the internals of operating system in a memory safe language. The main objective of this project is to be a memory safe kernel.
+rlxnix is a experimental monolithic kernel written in rust for analyzing and learning the internals of operating system in a memory safe language.
 
 ### Requirements
 
@@ -80,6 +80,27 @@ rlxnix is a experimental monolithic kernel written in rust for analyzing and lea
 
 <!-- ROADMAP -->
 ## Roadmap
+
+[x] Target x86_64
+[x] Setup std macros via vga memory (print!,println!)
+[x] Unit testing framework
+[x] Descriptor tables
+[x] IRQ and ISRS
+[x] Implement basic Paging
+[x] Allocator Framework
+  [ ] Buddy allocator ??
+[ ] Multitask Await/Async
+[ ] Virtual filesystem
+  [ ] Initrd Support
+[ ] Usermode
+  [ ] Switch to ring 0 -> 3
+  [ ] Basic syscall support
+  [ ] C runtime libraries
+[ ] Modules Support
+[ ] ..
+[ ] ..
+[ ] yet to decide
+
 
 See the [open issues](https://github.com/itsmanjeet/rlxnix/issues) for a list of proposed features (and known issues).
 

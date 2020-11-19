@@ -81,25 +81,25 @@ rlxnix is a experimental monolithic kernel written in rust for analyzing and lea
 <!-- ROADMAP -->
 ## Roadmap
 
-[x] Target x86_64
-[x] Setup std macros via vga memory (print!,println!)
-[x] Unit testing framework
-[x] Descriptor tables
-[x] IRQ and ISRS
-[x] Implement basic Paging
-[x] Allocator Framework
-  [ ] Buddy allocator ??
-[ ] Multitask Await/Async
-[ ] Virtual filesystem
-  [ ] Initrd Support
-[ ] Usermode
-  [ ] Switch to ring 0 -> 3
-  [ ] Basic syscall support
-  [ ] C runtime libraries
-[ ] Modules Support
-[ ] ..
-[ ] ..
-[ ] yet to decide
+- [x] Target x86_64
+- [x] Setup std macros via vga memory (print!,println!)
+- [x] Unit testing framework
+- [x] Descriptor tables
+- [x] IRQ and ISRS
+- [x] Implement basic Paging
+- [x] Allocator Framework
+  - [ ] Buddy allocator ??
+- [ ] Multitask Await/Async
+- [ ] Virtual filesystem
+  - [ ] Initrd Support
+- [ ] Usermode
+  - [ ] Switch to ring 0 -> 3
+  - [ ] Basic syscall support
+  - [ ] C runtime libraries
+- [ ] Modules Support
+- [ ] ..
+- [ ] ..
+- [ ] yet to decide
 
 
 See the [open issues](https://github.com/itsmanjeet/rlxnix/issues) for a list of proposed features (and known issues).
@@ -131,8 +131,6 @@ Distributed under the GPL3 License. See `license` for more information.
 Manjeet Singh - [@releaxos](https://twitter.com/releaxos) - itsmanjeet@releax.in <br />
 
 [Join](https://discord.gg/TXTxDTYcdg) our discord server for any query
-
-<a href="https://www.patreon.com/bePatron?u=28497716" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
 
 
 

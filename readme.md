@@ -132,9 +132,7 @@ Manjeet Singh - [@releaxos](https://twitter.com/releaxos) - itsmanjeet@releax.in
 
 [Join](https://discord.gg/TXTxDTYcdg) our discord server for any query
 
-
-Project Link: [https://github.com/itsmanjeet/rlxnix](https://github.com/itsmanjeet/rlxnix)
-
+<a href="https://www.patreon.com/bePatron?u=28497716" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
 
 
 

@@ -28,7 +28,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/itsmanjeet/rlxnix.git">
-    <img src=".data/logo.png" alt="Logo" width="80" height="80">
+    <img src=".data/logo.png" alt="Logo">
   </a>
   <p align="center">
     An experimental monolithic kernel in rust

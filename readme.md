@@ -94,9 +94,6 @@ rlxnix is a experimental monolithic kernel written in rust for analyzing and lea
   - [ ] Basic syscall support
   - [ ] C runtime libraries
 - [ ] Modules Support
-- [ ] ..
-- [ ] ..
-- [ ] yet to decide
 
 
 See the [open issues](https://github.com/itsmanjeet/rlxnix/issues) for a list of proposed features (and known issues).

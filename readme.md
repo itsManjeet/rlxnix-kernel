@@ -22,14 +22,14 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![GPL License][license-shield]][license-url]
-
+![Rust](https://github.com/itsManjeet/rlxnix/workflows/Rust/badge.svg)
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <!-- <a href="https://github.com/itsmanjeet/rlxnix.git">
-    <img src="data/logo.svg" alt="Logo" width="80" height="80">
-  </a> -->
+  <a href="https://github.com/itsmanjeet/rlxnix.git">
+    <img src=".data/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
   <h3 align="center">rlxnix</h3>
 

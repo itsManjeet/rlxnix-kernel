@@ -130,6 +130,12 @@ Manjeet Singh - [@releaxos](https://twitter.com/releaxos) - itsmanjeet@releax.in
 [Join](https://discord.gg/TXTxDTYcdg) our discord server for any query
 
 
+## Acknowledgement
+
+- [https://os.phil-opp.com/](https://os.phil-opp.com/)
+- [blog os](https://github.com/phil-opp/blog_os)
+- [osdev](https://osdev.org)
+- [JamesM's kernel development](http://www.jamesmolloy.co.uk/tutorial_html/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
